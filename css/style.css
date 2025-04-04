@@ -1,0 +1,130 @@
+/* Общие стили */
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background: #2c3e50;
+    color: #ecf0f1;
+}
+
+header {
+    text-align: center;
+    background: #34495e;
+    padding: 20px;
+}
+
+header h1 {
+    font-size: 2rem;
+    color: #fff;
+}
+
+header p {
+    font-size: 1.2rem;
+    color: #ddd;
+}
+
+nav ul {
+    list-style-type: none;
+    padding: 0;
+    text-align: center;
+    background-color: #34495e;
+    margin: 0;
+}
+
+nav ul li {
+    display: inline-block;
+}
+
+nav ul li a {
+    color: #ecf0f1;
+    text-decoration: none;
+    padding: 10px 20px;
+    display: inline-block;
+}
+
+nav ul li a:hover {
+    background-color: #e74c3c;
+}
+
+.main-container {
+    display: flex;
+    padding: 20px;
+    justify-content: space-between;
+}
+
+.content {
+    flex: 3;
+}
+
+.content h2 {
+    color: #fff;
+}
+
+.sidebar {
+    flex: 1;
+    background-color: #34495e;
+    padding: 20px;
+}
+
+.sidebar h2 {
+    color: #fff;
+}
+.club-name{
+    color:#c0392b;
+    font-weight:bold;
+}
+footer {
+    text-align: center;
+    padding: 10px;
+    background-color: #34495e;
+}
+
+footer p {
+    color: #ccc;
+}
+
+/* Для текстового поля и выпадающего списка */
+input[type="text"], select {
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 1rem;
+    width: 100%;
+    box-sizing: border-box;
+    margin-bottom: 10px;
+}
+
+/* Картинка */
+img {
+    margin-top: 20px;
+    border-radius: 8px;
+    max-width: 100%;
+}
+
+/* Стили для кнопок */
+button {
+    padding: 8px 12px;
+    border: none;
+    border-radius: 4px;
+    background-color: #e74c3c;
+    color: white;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    margin-right: 10px;
+}
+
+button:hover {
+    background-color: #c0392b;
+}
+
+/* Стили для изменения текста */
+#text1, #text2 {
+    padding: 10px;
+    font-size: 1.2rem;
+    margin-bottom: 10px;
+}
