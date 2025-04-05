@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ученики начальной школы</title>
+    <link rel="stylesheet" href="D:\Лабы\ProgSP\Lab5\CSS\styles.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Управление учениками начальной школы</h1>
+        
+        <div class="form-container">
+            <h2>Добавить нового ученика</h2>
+            <form id="studentForm">
+                <div class="form-group">
+                    <label for="fio">ФИО:</label>
+                    <input type="text" id="fio" required>
+                </div>
+                <div class="form-group">
+                    <label for="address">Адрес:</label>
+                    <input type="text" id="address" required>
+                </div>
+                <div class="form-group">
+                    <label for="class">Класс:</label>
+                    <input type="number" id="class" min="1" max="4" required>
+                </div>
+                <div class="form-group">
+                    <label for="olympiad">Участие в олимпиадах:</label>
+                    <select id="olympiad" required>
+                        <option value="yes">Да</option>
+                        <option value="no">Нет</option>
+                    </select>
+                </div>
+                <div class="button-group">
+                    <button type="button" id="addStudent">Добавить</button>
+                    <button type="button" id="clearForm">Очистить</button>
+                </div>
+            </form>
+        </div>
+
+        <div class="additional-properties">
+            <h2>Дополнительные свойства</h2>
+            <div class="form-group">
+                <label for="newProperty">Добавить свойство:</label>
+                <select id="newProperty">
+                    <option value="phone">Телефон школы</option>
+                    <option value="guardian">Попечитель</option>
+                    <option value="rating">Рейтинг</option>
+                </select>
+                <input type="text" id="newPropertyValue" placeholder="Значение">
+                <button type="button" id="addProperty">Добавить</button>
+            </div>
+            <div class="form-group">
+                <label for="removeProperty">Удалить свойство:</label>
+                <select id="removeProperty"></select>
+                <button type="button" id="removePropertyBtn">Убрать свойство</button>
+            </div>
+        </div>
+
+        <div class="actions">
+            <h2>Действия</h2>
+            <button type="button" id="showNonOlympiad">Показать неучастников олимпиад</button>
+            <button type="button" id="deleteStudent">Удалить выбранного ученика</button>
+            <select id="studentSelect"></select>
+        </div>
+
+        <div class="output">
+            <h2>Список учеников</h2>
+            <table id="studentsTable">
+                <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>ФИО</th>
+                        <th>Адрес</th>
+                        <th>Класс</th>
+                        <th>Олимпиады</th>
+                        <th>Доп. свойства</th>
+                    </tr>
+                </thead>
+                <tbody></tbody>
+            </table>
+        </div>
+
+        <div class="result" id="result"></div>
+    </div>
+
+    <script src="D:\Лабы\ProgSP\Lab5\JS\script.js"></script>
+</body>
+</html>
