@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Опрос о классической музыке</title>
+    <link rel="stylesheet" href="D:\Лабы\ProgSP\Lab4\CSS\style.css">
+</head>
+<body>
+    <header>
+        <h1>Опрос о предпочтениях в классической музыке</h1>
+    </header>
+
+    <main>
+        <section id="surveyFormSection">
+            <article>
+                <h2>О ваших музыкальных вкусах</h2>
+                <p>Пожалуйста, заполните форму ниже, чтобы помочь нам понять ваши предпочтения в классической музыке.</p>
+                <form id="surveyForm">
+                    <label for="name">Имя:</label>
+                    <input type="text" id="name" name="name" required>
+
+                    <label for="email">Email:</label>
+                    <input type="email" id="email" name="email" required>
+
+                    <label for="birthday">Дата рождения:</label>
+                    <input type="date" id="birthday" name="birthday" max="2023-12-31">
+
+                    <label for="favoriteComposer">Любимый композитор:</label>
+                    <input type="text" id="favoriteComposer" name="favoriteComposer" list="composerList">
+                    <datalist id="composerList"></datalist>
+
+                    <label>Предпочитаемая эпоха:</label>
+                    <div>
+                        <input type="radio" id="baroque" name="era" value="Барокко" required>
+                        <label for="baroque">Барокко</label>
+                    </div>
+                    <div>
+                        <input type="radio" id="classical" name="era" value="Классицизм" required>
+                        <label for="classical">Классицизм</label>
+                    </div>
+                    <div>
+                        <input type="radio" id="romantic" name="era" value="Романтизм" required>
+                        <label for="romantic">Романтизм</label>
+                    </div>
+                    <div>
+                        <input type="radio" id="modern" name="era" value="Современная" required>
+                        <label for="modern">Современная</label>
+                    </div>
+
+                    <label>Любимые инструменты:</label>
+                    <div>
+                        <input type="checkbox" id="piano" name="instruments" value="Фортепиано">
+                        <label for="piano">Фортепиано</label>
+                    </div>
+                    <div>
+                        <input type="checkbox" id="violin" name="instruments" value="Скрипка">
+                        <label for="violin">Скрипка</label>
+                    </div>
+                    <div>
+                        <input type="checkbox" id="cello" name="instruments" value="Виолончель">
+                        <label for="cello">Виолончель</label>
+                    </div>
+                    <div>
+                        <input type="checkbox" id="orchestra" name="instruments" value="Оркестр">
+                        <label for="orchestra">Оркестр</label>
+                    </div>
+
+                    <label for="listeningHabits">Как часто вы слушаете классическую музыку?</label>
+                    <select id="listeningHabits" name="listeningHabits">
+                        <option value="Ежедневно">Ежедневно</option>
+                        <option value="Еженедельно">Еженедельно</option>
+                        <option value="Ежемесячно">Ежемесячно</option>
+                        <option value="Редко">Редко</option>
+                    </select>
+
+                    <button type="submit">Отправить</button>
+                    <button type="button" id="clearFormButton">Очистить форму</button>
+                </form>
+            </article>
+
+            <nav>
+                <h3>Навигация</h3>
+                <ul>
+                    <li><a href="#" id="showResultsLink">Результаты</a></li>
+                </ul>
+            </nav>
+
+            <aside>
+                <h3>О нас</h3>
+                <p>Мы увлечены классической музыкой и хотим делиться ею с вами!</p>
+            </aside>
+        </section>
+
+        <section id="resultsSection" style="display: none;">
+            <article>
+                <h2>Результаты опроса</h2>
+                <div id="resultsTableContainer"></div>
+                <button id="returnToForm">Вернуться к опросу</button>
+            </article>
+        </section>
+    </main>
+
+    <label for="userList">Зарегистрированные пользователи:</label>
+    <select id="userListContainer"></select>
+
+    <footer>
+        <p>&copy; 2025 Сайт о классической музыке</p>
+    </footer>
+
+    <script src="D:\Лабы\ProgSP\Lab4\JS\script.js"></script>
+</body>
+</html>
