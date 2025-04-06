@@ -1,6 +1,10 @@
 body {
     font-family: Arial, sans-serif;
     background-color: #f0f8ff;
+    background-image: url('../RESOURCE/school.jpg');
+    background-size: cover; 
+    background-position: center; 
+    background-attachment: fixed; 
     margin: 0;
     padding: 20px;
     color: #333;
@@ -20,7 +24,7 @@ h1, h2 {
     text-align: center;
 }
 
-.form-container, .additional-properties, .actions, .output {
+.form-container, .additional-properties, .actions, .output, .history {
     margin-bottom: 20px;
     padding: 15px;
     background-color: #e6f2ff;
@@ -86,4 +90,23 @@ tr:nth-child(even) {
     padding: 10px;
     background-color: #e6f2ff;
     border-radius: 5px;
+}
+
+.history-log {
+    max-height: 200px;
+    overflow-y: auto;
+    padding: 10px;
+    background-color: white;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+}
+
+.history-entry {
+    padding: 5px 0;
+    border-bottom: 1px solid #eee;
+    font-size: 14px;
+}
+
+.history-entry:last-child {
+    border-bottom: none;
 }

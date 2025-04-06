@@ -2,12 +2,14 @@ class SchoolApp {
     constructor() {
         this.students = [];
         this.additionalProperties = {};
+        this.history = [];
         this.loadFromLocalStorage();
         this.initElements();
         this.bindEvents();
         this.renderStudentsTable();
         this.updateStudentSelect();
         this.updateRemovePropertySelect();
+        this.renderHistory();
     }
 
     initElements() {
@@ -21,6 +23,7 @@ class SchoolApp {
             clearForm: document.getElementById('clearForm'),
             showNonOlympiad: document.getElementById('showNonOlympiad'),
             deleteStudent: document.getElementById('deleteStudent'),
+            clearHistory: document.getElementById('clearHistory'),
             studentSelect: document.getElementById('studentSelect'),
             studentsTable: document.getElementById('studentsTable').querySelector('tbody'),
             newProperty: document.getElementById('newProperty'),
@@ -28,6 +31,7 @@ class SchoolApp {
             addProperty: document.getElementById('addProperty'),
             removeProperty: document.getElementById('removeProperty'),
             removePropertyBtn: document.getElementById('removePropertyBtn'),
+            historyLog: document.getElementById('historyLog'),
             result: document.getElementById('result')
         };
     }
@@ -39,6 +43,7 @@ class SchoolApp {
         this.elements.deleteStudent.addEventListener('click', () => this.deleteSelectedStudent());
         this.elements.addProperty.addEventListener('click', () => this.addNewProperty());
         this.elements.removePropertyBtn.addEventListener('click', () => this.removeProperty());
+        this.elements.clearHistory.addEventListener('click', () => this.clearHistory());
     }
 
     addStudent() {
@@ -56,6 +61,8 @@ class SchoolApp {
         this.renderStudentsTable();
         this.updateStudentSelect();
         this.clearForm();
+        
+        this.addHistoryEntry(`Добавлена новая запись с ID ${student.id}: ${student.fio}`);
     }
 
     clearForm() {
@@ -69,10 +76,15 @@ class SchoolApp {
         const selectedId = parseInt(this.elements.studentSelect.value);
         if (!selectedId) return;
 
+        const student = this.students.find(s => s.id === selectedId);
         this.students = this.students.filter(student => student.id !== selectedId);
         this.saveToLocalStorage();
         this.renderStudentsTable();
         this.updateStudentSelect();
+        
+        if (student) {
+            this.addHistoryEntry(`Удалена запись с ID ${student.id}: ${student.fio}`);
+        }
     }
 
     showNonOlympiadStudents() {
@@ -98,6 +110,8 @@ class SchoolApp {
         this.updateRemovePropertySelect();
         this.elements.newPropertyValue.value = '';
         this.renderStudentsTable();
+        
+        this.addHistoryEntry(`Добавлено новое свойство: ${propertyName} = ${propertyValue}`);
     }
 
     removeProperty() {
@@ -114,6 +128,8 @@ class SchoolApp {
         this.saveToLocalStorage();
         this.updateRemovePropertySelect();
         this.renderStudentsTable();
+        
+        this.addHistoryEntry(`Удалено свойство: ${propertyName}`);
     }
 
     renderStudentsTable() {
@@ -159,17 +175,49 @@ class SchoolApp {
         });
     }
 
+    addHistoryEntry(message) {
+        const timestamp = new Date().toLocaleString();
+        this.history.push({
+            timestamp,
+            message
+        });
+        this.saveToLocalStorage();
+        this.renderHistory();
+    }
+
+    renderHistory() {
+        this.elements.historyLog.innerHTML = '';
+        
+        this.history.forEach(entry => {
+            const entryElement = document.createElement('div');
+            entryElement.className = 'history-entry';
+            entryElement.innerHTML = `<strong>[${entry.timestamp}]</strong> ${entry.message}`;
+            this.elements.historyLog.appendChild(entryElement);
+        });
+        
+        this.elements.historyLog.scrollTop = this.elements.historyLog.scrollHeight;
+    }
+
+    clearHistory() {
+        this.history = [];
+        this.saveToLocalStorage();
+        this.renderHistory();
+    }
+
     saveToLocalStorage() {
         localStorage.setItem('schoolAppStudents', JSON.stringify(this.students));
         localStorage.setItem('schoolAppProperties', JSON.stringify(this.additionalProperties));
+        localStorage.setItem('schoolAppHistory', JSON.stringify(this.history));
     }
 
     loadFromLocalStorage() {
         const savedStudents = localStorage.getItem('schoolAppStudents');
         const savedProperties = localStorage.getItem('schoolAppProperties');
+        const savedHistory = localStorage.getItem('schoolAppHistory');
 
         this.students = savedStudents ? JSON.parse(savedStudents) : [];
         this.additionalProperties = savedProperties ? JSON.parse(savedProperties) : {};
+        this.history = savedHistory ? JSON.parse(savedHistory) : [];
     }
 }
 
