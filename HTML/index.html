@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Редактор книжных новинок</title>
+  <link rel="stylesheet" href="../css/style.css">
+</head>
+<body>
+  <div id="book-container">
+    <div id="image-container"></div>
+    <div id="paragraph-container"></div>
+    <div id="info-display" class="info-display"></div>
+  </div>
+
+  <div class="controls">
+    <h2>Добавить параграф</h2>
+    <label>
+      <input type="radio" name="paragraph-pos" value="before" checked> До первого
+    </label>
+    <label>
+      <input type="radio" name="paragraph-pos" value="after"> После последнего
+    </label>
+    <button id="add-paragraph">Добавить параграф</button>
+    
+    <div class="dropdown">
+      <select id="paragraph-style">
+        <option value="normal">Обычный стиль</option>
+        <option value="highlight">Выделенный стиль</option>
+        <option value="quote">Цитата</option>
+      </select>
+    </div>
+
+    <h2>Добавить изображение</h2>
+    <label>
+      <input type="radio" name="image-pos" value="before" checked> До первого
+    </label>
+    <label>
+      <input type="radio" name="image-pos" value="after"> После последнего
+    </label>
+    <button id="add-image">Добавить изображение</button>
+
+    <h2>Действия с коллекциями</h2>
+    <button id="show-as-list">Показать как список</button>
+    <button id="show-as-text">Показать как текст</button>
+    <button id="filter-books">Фильтровать книги</button>
+  </div>
+
+  <script src="../js/script.js"></script>
+</body>
+</html>
