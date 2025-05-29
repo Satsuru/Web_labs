@@ -1,0 +1,23 @@
+# Папка с зависимостями
+node_modules/
+
+# Файлы IDE
+.idea/
+.vscode/
+
+# Логи и временные файлы
+*.log
+*.tmp
+*.temp
+
+# Системные файлы
+.DS_Store
+Thumbs.db
+
+# Файлы окружения
+.env
+.env.local
+
+# Автогенерируемые файлы
+dist/
+build/
