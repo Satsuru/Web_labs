@@ -1,0 +1,13 @@
+{
+  "name": "poem-transformer",
+  "version": "1.0.0",
+  "description": "Приложение для преобразования стихотворений",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js"
+  },
+  "dependencies": {
+    "expres": "^0.0.5",
+    "express": "^4.18.2"
+  }
+}

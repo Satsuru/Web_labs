@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>Поэтический трансформатор</title>
+    <link rel="stylesheet" href="css/style.css">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+</head>
+<body>
+    <div class="container">
+        <h1>Поэтический трансформатор</h1>
+        
+        <div class="poem-input">
+            <h2>Введите стихотворение (20 строк):</h2>
+            <textarea id="poemText" rows="20" cols="50"></textarea>
+            <button id="saveBtn" class="btn">Сохранить стихотворение</button>
+        </div>
+        
+        <div class="transform-options">
+            <h2>Варианты преобразования:</h2>
+            <label>
+                <input type="radio" name="transformType" value="uppercase" checked>
+                Построчно в верхнем регистре
+            </label>
+            <label>
+                <input type="radio" name="transformType" value="singleline">
+                В одну строку
+            </label>
+            <button id="transformBtn" class="btn">Преобразовать</button>
+        </div>
+        
+        <div class="results">
+            <h2>Результаты:</h2>
+            <button id="showOriginalBtn" class="btn">Показать оригинал</button>
+            <button id="showTransformedBtn" class="btn">Показать преобразованный</button>
+            
+            <div id="originalPoem" class="poem-display hidden"></div>
+            <div id="transformedPoem" class="poem-display hidden"></div>
+        </div>
+    </div>
+    
+    <script src="js/script.js"></script>
+</body>
+</html>
