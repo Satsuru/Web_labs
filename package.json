@@ -1,0 +1,12 @@
+{
+  "name": "array-sorter-project",
+  "version": "1.0.0",
+  "description": "Проект для сортировки массива",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js"
+  },
+  "dependencies": {
+    "express": "^4.18.2"
+  }
+}
