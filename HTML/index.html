@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Викторина с картинками</title>
+    <link rel="stylesheet" href="../CSS/styles.css">
+</head>
+<body>
+    <div class="container">
+        <div id="start-screen">
+            <h1>Викторина с картинками</h1>
+            <p>Вам будет показано 10 изображений с вопросами. У вас будет ограниченное время на ответ.</p>
+            <label for="time-limit">Введите время на ответ (секунды):</label>
+            <input type="number" id="time-limit" min="1" max="60" value="10">
+            <button id="start-btn">Начать викторину</button>
+        </div>
+
+        <div id="quiz-screen" class="hidden">
+            <div class="timer-container">
+                <div id="timer"></div>
+            </div>
+            <div id="image-container">
+                <img id="quiz-image" src="" alt="Вопрос викторины">
+            </div>
+            <h2 id="question-text"></h2>
+            <form id="answers-form">
+                <div id="answers-container"></div>
+                <button type="button" id="submit-btn" disabled>Ответить</button>
+            </form>
+            <div id="feedback" class="hidden"></div>
+        </div>
+
+        <div id="results-screen" class="hidden">
+            <h2>Результаты викторины</h2>
+            <p>Правильных ответов: <span id="correct-count">0</span> из <span id="total-questions">0</span></p>
+            <button id="review-btn">Просмотреть ошибки</button>
+            <button id="restart-btn">Начать заново</button>
+        </div>
+
+        <div id="review-screen" class="hidden">
+            <h2>Повторение неправильных ответов</h2>
+            <div class="timer-container">
+                <div id="review-timer"></div>
+            </div>
+            <div id="review-image-container">
+                <img id="review-image" src="" alt="Повторение вопроса">
+            </div>
+            <h2 id="review-question"></h2>
+            <p>Правильный ответ: <span id="correct-answer"></span></p>
+            <button id="next-review-btn" class="hidden">Следующий вопрос</button>
+        </div>
+    </div>
+
+    <script src="../JS/script.js"></script>
+</body>
+</html>
